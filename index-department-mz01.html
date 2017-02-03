@@ -43,6 +43,7 @@
 
 	<!-- CSS Customization -->
 	<link rel="stylesheet" href="assets/css/custom.css">
+	<link rel="stylesheet" href="css/normalize.css">
 	
 	<style>
 	.popup {
@@ -134,15 +135,14 @@
 The #page-top ID is part of the scrolling feature.
 The data-spy and data-target are part of the built-in Bootstrap scrollspy function.
 -->
-<body id="body" data-spy="scroll" data-target=".one-page-header" class="demo-lightbox-gallery" >
-
-			
-			<section id = "productSt"  class="news-section" style=" height:900px;background-image:url(assets/img/background.png);background-size:cover;background-repeat:no-repeat;">
-			
-				<div  style="height:900px; ">
+<body id="body" data-spy="scroll" data-target=".one-page-header" class="demo-lightbox-gallery" style="position:relative;" >
+<div  class="container-fluid"  style = "background-image: url(assets/img/background.png);background-size:cover; position:relative; ">
+  <div class="row"  >
+		
+		<div class="col-lg-3">
 					<div class="b-wrap" >
-						<div class="b-menu"  style="height:380px;width:300px">
-							<ul id="ulCategorysDiv" style="height:380px;width:300px">
+						<div class="b-menu" style="height:380px;width:200px">
+							<ul id="ulCategorysDiv" style="height:380px;width:200px">
 								<li style="list-style-type:none" onclick="getProductSubCategory(this)">
 									
 									<label class="title">
@@ -170,15 +170,15 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
 							</ul>
 						</div>
 					</div>
-			
-				
+		</div>
+		<div class="col-lg-6">	
+		
 					<style type="text/css">
-
 					.searchBox{
 						background:url("assets/img/product_search.png") no-repeat scroll right center transparent;
 						padding-left:10px;
 						margin-top: 10px;
-						margin-left: 700px;
+						margin-left: 70px;
 						border:1px solid #ccc; 
 						float:left; line-height:20px;
 						border-radius:10px;
@@ -188,11 +188,15 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
 					}
 					</style>
 					<input type="text" name="search" class="searchBox" />
-					
-						
-							<div style="margin-left: 600px;margin-top: 80px;"><img style="margin-top: 20px;" src="assets/img/zhmz.jpg" /></div>
+					<img style="margin-left: 20px;margin-top: 20px;max-width:925px;" src="assets/img/zhmz.jpg" />
 							
-							<div style="margin-left: 200px;margin-top: 30px;border-right: 1px solid #eaeaea;background: #ffffff;width:80%;height:740px" id="productsDiv">
+		</div>
+	</div>
+	
+  <div class="row"  class="news-section">
+		
+		<div class="col-lg-12">
+				<div style="margin-left: 100px;margin-top: 30px;border-right: 1px solid #eaeaea;background: #ffffff;width:90%;height:740px" id="productsDiv">
 								<div style="font-size:24pt;color:#707070;padding-left:30px;font-weight:800">
 								门诊列表
 								
@@ -200,111 +204,12 @@ The data-spy and data-target are part of the built-in Bootstrap scrollspy functi
 								<div>
 								 <img src="assets/img/line.png" />
 								</div>
-								<!--
-								<div style="margin-left: 10px;margin-top: 10px;">
-									
-										<div style="float:left;width:32%;word-wrap:break-word; word-break:break-all; ">
-											<a href="#" class="btn dark" data-dialog="#popup-dialog" data-effect="effect-slide-left">	<img style="width:250px;height:215px"  src="assets/img/product/HOG-55515-6.jpg"/>
-												<div style="word-break:break-all; width:200px; font-weight:bold ">Healthy Origins, 益生菌</div>
-												<div style="word-wrap: break-word; word-break:break-all; width:200px; ">
-												Healthy Origins益生菌300亿菌落形成单位，混合8种有益菌株<br />
-												和300亿菌落形成单位（CFU），功效强大，帮助积极平衡肠内<br />
-												微生物菌群。补充益生菌可以帮助维持有益的细菌菌落。
-												</div>
-											</a>
-										</div>
-										<div style="float:left;width:32%;">
-											<a href="#" class="btn dark" data-dialog="#popup-dialog" data-effect="effect-slide-left">	<img  style="width:250px;height:215px" src="assets/img/product/DRB-00262-8.jpg"/>
-												<div style="word-break:break-all; width:200px; font-weight:bold ">Doctor's Best, Best叶酸</div>
-												<div style="word-wrap: break-word; word-break:break-all; width:200px; ">
-												必需营养素叶酸的功能性不足较为常见，会损害关键的生命过<br />
-												程，包括从出生前老龄阶段的基因水平调节、细胞生长方式和<br />
-												组织修复。Best完全活性叶酸提供MTHF（5 - 甲基四氢叶酸）。
-												</div>
-											</a>
-										</div>
-										<div style="float:left;width:32%;">
-											<a href="#" class="btn dark" data-dialog="#popup-dialog" data-effect="effect-slide-left">	<img style="width:220px;height:215px"  src="assets/img/product/NFS-04513-2.jpg"/>
-												<div style="word-break:break-all; width:200px; font-weight:bold ">超强蔓越莓精华</div>
-												<div style="word-wrap: break-word; word-break:break-all; width:200px; ">
-												CranRich胶囊提供大量源自蔓越莓的独特健康化合物. 该胶囊
-												是<br />蔓越莓粉的有力来源，浓度高达36:1.(这表示1克蔓越莓粉
-												相当于<br />36克新鲜蔓越莓）. 服用胶囊也比服用蔓越莓果汁更加便利<br />
-												</div>
-											</a>
-										</div>
-								</div>
 								
-								<div style="margin-left: 10px;margin-top: 10px;">
-									
-										<div style="float:left;width:32%;word-wrap:break-word; word-break:break-all; ">
-											<a href="#" class="btn dark" data-dialog="#popup-dialog" data-effect="effect-slide-left">	<img style="width:250px;height:215px"  src="assets/img/product/NOW-01757-3.jpg"/>
-												<div style="word-break:break-all; width:200px; font-weight:bold ">Now Foods, 超级月见草</div>
-												<div style="word-wrap: break-word; word-break:break-all; width:200px; ">
-												NOW 超级月见草油含天然 γ-亚麻酸（GLA），这是琉璃苣和黑<br />
-												醋栗种子油中的一种 ω-6 脂肪酸。摄入预制形态的 GLA，能<br />
-												更有效地为人体所利用。
-												</div>
-											</a>
-										</div>
-										<div style="float:left;width:32%;">
-											<a href="#" class="btn dark" data-dialog="#popup-dialog" data-effect="effect-slide-left">	<img  style="width:250px;height:215px" src="assets/img/product/GOL-11377-1.jpg"/>
-												<div style="word-break:break-all; width:200px; font-weight:bold ">Garden of Life, 维生素代码</div>
-												<div style="word-wrap: break-word; word-break:break-all; width:200px; ">
-												让维生素代码RAW维生素E复合配方为您的健康保驾护航！本配<br />
-												方包含全面的RAW维生素E复合物以及创新营养成分。天然创新<br />
-												营养成分与独一无二的代码因子结合。
-												</div>
-											</a>
-										</div>
-										<div style="float:left;width:32%;">
-											<a href="#" class="btn dark" data-dialog="#popup-dialog" data-effect="effect-slide-left">	<img style="width:220px;height:215px"  src="assets/img/product/LEX-16896-3.jpg"/>
-												<div style="word-break:break-all; width:200px; font-weight:bold ">Life Extension, DHEA</div>
-												<div style="word-wrap: break-word; word-break:break-all; width:200px; ">
-												DHEA峰值水平在大约25岁时出现，在此之后逐渐下降。人们<br />
-												认为，所标记的血清 DHEA 随着年龄的下降在与老龄化相关<br />
-												的健康问题中起到重要作用。
-												</div>
-											</a>
-										</div>
-								</div>
-								<div style="margin-left: 10px;margin-top: 10px;">
-									
-										<div style="float:left;width:32%;word-wrap:break-word; word-break:break-all; ">
-											<a href="#" class="btn dark" data-dialog="#popup-dialog" data-effect="effect-slide-left">	<img style="width:250px;height:215px"  src="assets/img/product/NOW-04773-6.jpg"/>
-												<div style="word-break:break-all; width:200px; font-weight:bold ">Now Foods, 圣洁莓提取物胶囊</div>
-												<div style="word-wrap: break-word; word-break:break-all; width:200px; ">
-												圣洁莓是从穗花牡荆果实中衍生出的一种传统草药，它生长<br />
-												在亚洲的温带地区。本标准配方中，含有至少0.5%的穗花牡<br />
-												荆，即圣洁莓的活性成分，可发挥协同作用。
-												</div>
-											</a>
-										</div>
-										<div style="float:left;width:32%;">
-											<a href="#" class="btn dark" data-dialog="#popup-dialog" data-effect="effect-slide-left">	<img  style="width:250px;height:215px" src="assets/img/product/FLO-61344-5.jpg"/>
-												<div style="word-break:break-all; width:200px; font-weight:bold ">Flora, 葡萄籽提取物强化复方素食胶囊</div>
-												<div style="word-wrap: break-word; word-break:break-all; width:200px; ">
-												Flora的葡萄籽提取物强化复方提供天然的抗氧化剂，并包<br />
-												含麦斯凯利正宗的OPC复合葡萄籽提取物。 Flora的顶级品<br />
-												质欧洲越橘提取物和蔓越橘粉。
-												</div>
-											</a>
-										</div>
-										<div style="float:left;width:32%;">
-											<a href="#" class="btn dark" data-dialog="#popup-dialog" data-effect="effect-slide-left">	<img style="width:220px;height:215px"  src="assets/img/product/ECL-30900-5.jpg"/>
-												<div style="word-break:break-all; width:200px; font-weight:bold ">Eclectic Institute, 圣约翰草</div>
-												<div style="word-wrap: break-word; word-break:break-all; width:200px; ">
-												从农场到瓶子，我们利用自然疗法的智慧和创新的工艺，<br />
-												制作优秀的产品。我们有机种植或以可持续的方式野生栽<br />
-												培草药，在药效高峰期收获，然后在室内冷冻干燥。
-												</div>
-											</a>
-										</div>
-								</div>
-								!-->
 							</div>
-				</div>
-			</section>
+		</div>
+	</div>
+	
+</div>
 			
 
 	
