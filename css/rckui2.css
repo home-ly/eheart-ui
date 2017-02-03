@@ -1,0 +1,656 @@
+/*author:rckevin*/
+@charset "utf-8";
+
+/*----- nrck-tab -----*/
+.nrck-tab {
+	position: relative;
+	width:100%;
+}
+.nrck-tab .tab-menu {
+	position: relative;
+	width: 100%;
+}
+.nrck-tab .tab-menu ul {
+	width: 100%;
+	height: 20px;
+	border-bottom: 2px solid #28c4ff;
+}
+.nrck-tab .tab-menu ul li.menu-block {
+	display: block;
+	float: left;
+	margin: 0 5px 0 0;
+}
+.nrck-tab .tab-menu ul li.menu-block a {
+	display: block;
+	width: 50px;
+	height: 20px;
+	background: #ffffff;
+	color: #28c4ff;
+	text-align: center;
+	font-size: 14px;
+	line-height: 20px;
+}
+.nrck-tab .tab-menu ul li.menu-block a:hover {
+	color: #ffffff;
+	background: #28c4ff;
+}
+.nrck-tab .tab-menu ul li.tab-now a {
+	color: #ffffff;
+	background: #28c4ff;
+}
+.nrck-tab .tab-body {
+	width: 100%;
+	height:300px;
+	background: #cccccc;
+}
+.nrck-tab .tab-body div.body-block {
+	width: 100%;
+	height: 100%;
+	display: none;
+}
+.nrck-tab .tab-body div.tab-now {
+	display: block;
+}
+
+/*----- nrck-placeholder -----*/ 
+.nrck-placeholder {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+}
+.nrck-placeholder input {
+	position: relative;
+	z-index: 1;
+}
+.nrck-placeholder .placeholder-text {
+	display: block;
+	position: absolute;
+	left: 0;
+	top: 0;
+	color: #bbbbbb;
+	z-index: 2;
+}
+
+/*----- nrck-checkbox -----*/ 
+.nrck-check {
+	display: inline-block;
+	vertical-align: middle;
+}
+.nrck-check input {
+	display: none;
+}
+.nrck-check .check-icon {
+	background: url(../images/icon/rckui-icon.png) no-repeat;
+	cursor: pointer;
+}
+.nrck-check.check-style-1 .check-icon {
+	width: 24px;
+	height: 24px;
+}
+.nrck-check.check-style-1.check-block .check-icon {
+	background-position: -40px 0;
+}
+.nrck-check.check-style-1.radio-block .check-icon {
+	background-position: 0 0;
+}
+.nrck-check.check-style-1.check-block .checked {
+	background-position: -40px -40px;
+}
+.nrck-check.check-style-1.radio-block .checked {
+	background-position: 0 -40px;
+}
+.nrck-check .disable-icon {
+	display:none;
+	background: url(../images/icon/rckui-icon.png) no-repeat;
+	cursor: not-allowed;
+}
+.nrck-check.check-style-1 .disable-icon {
+	width: 24px;
+	height: 24px;
+}
+.nrck-check.check-style-1.check-block .disable-icon.checked {
+	background-position: -40px -80px;
+}
+.nrck-check.check-style-1.radio-block .disable-icon.checked {
+	background-position: 0 -80px;
+}
+.nrck-check.check-style-1.check-block .disable-icon.uncheck {
+	background-position: -40px -120px;
+}
+.nrck-check.check-style-1.radio-block .disable-icon.uncheck {
+	background-position: 0 -120px;
+}
+
+.nrck-check.check-style-2 .check-icon {
+	width: 14px;
+	height: 14px;
+}
+.nrck-check.check-style-2.check-block .check-icon {
+	background-position: -120px 0;
+}
+.nrck-check.check-style-2.radio-block .check-icon {
+	background-position: -80px 0;
+}
+.nrck-check.check-style-2.check-block .checked {
+	background-position: -200px -80px;
+}
+.nrck-check.check-style-2.radio-block .checked {
+	background-position: -160px -80px;
+}
+.nrck-check .disable-icon {
+	display:none;
+	background: url(../images/icon/rckui-icon.png) no-repeat;
+	cursor: not-allowed;
+}
+.nrck-check.check-style-2 .disable-icon {
+	width: 14px;
+	height: 14px;
+}
+.nrck-check.check-style-2.check-block .disable-icon.checked {
+	background-position: -120px -80px;
+}
+.nrck-check.check-style-2.radio-block .disable-icon.checked {
+	background-position: -80px -80px;
+}
+.nrck-check.check-style-2.check-block .disable-icon.uncheck {
+	background-position: -120px -120px;
+}
+.nrck-check.check-style-2.radio-block .disable-icon.uncheck {
+	background-position: -80px -120px;
+}
+
+/*----- nrck-select -----*/
+.nrck-select {
+	position: relative;
+	display: inline-block;
+	vertical-align: middle;
+	font-size: 14px;
+	z-index: 100;
+	cursor: pointer;
+}
+.nrck-select.select-open {
+	z-index: 2000;
+}
+.nrck-select .select-disabled {
+	width: 100%;
+	display: none;
+}
+.nrck-select .select-value {
+	position: relative;
+	display: block;
+	width: 100%;
+	height: 28px;
+	font-size: inherit;
+	line-height: 28px;
+	text-indent: 1em;
+	border: 1px solid #e8e8e8;
+	color: #666666;
+	background: #ffffff;
+	z-index: 101;
+}
+.nrck-select .select-icon {
+	display: block;
+	position: absolute;
+	right: 10px;
+	top: 13px;
+	width: 9px;
+	height: 5px;
+	background: url(../images/icon/rckui-icon.png) no-repeat;
+	background-position:  -240px 0;
+	z-index: 102;
+}
+.nrck-select:hover .select-value {
+	background: #28c4ff;
+	color: #ffffff;
+	border: 1px solid #28c4ff;
+}
+.nrck-select:hover .select-icon {
+	background-position: -280px 0;
+}
+.nrck-select.select-open .select-value {
+	background: #28c4ff;
+	color: #ffffff;
+	border: 1px solid #28c4ff;
+}
+.nrck-select.select-open .select-icon {
+	background-position: -280px 0;
+}
+
+.nrck-select .select-body {
+	display: none;
+	position: absolute;
+	left: 0;
+	top: 29px;
+	width: 100%;
+	max-height: 120px;
+	border: 1px solid #cccccc;
+	font-size: inherit;
+	overflow:auto;
+}
+.nrck-select.select-open .select-body {
+	border: 1px solid #28c4ff;
+}
+.nrck-select .select-body .select-item {
+	position: relative;
+	width: 100%;
+	height: 30px;
+	color: #666666;
+	background: #ffffff;
+	line-height: 30px;
+	text-indent: 1em;
+	font-size: inherit;
+	cursor: pointer;
+}
+.nrck-select .select-body .select-item:hover {
+	background: #28c4ff;
+	color: #ffffff;
+}
+.nrck-select .select-body .select-item.selected {
+	background: #28c4ff;
+	color: #ffffff;
+}
+
+/*----- nrck-dialog -----*/
+.nrck-dialog {
+	display: none;
+	position: fixed;
+	left:0;
+	top:0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	z-index: 999;
+}
+.nrck-dialog .dialog-filter {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 999;
+	filter:Alpha(opacity=30);
+	opacity:0.3;
+	background: #000;
+}
+.nrck-dialog .dialog-body {
+	position: absolute;
+	right: 0;
+	top: 0;
+	width: 800px;
+	height: 100%;
+	z-index: 1000;
+	background: #ffffff;
+}
+.nrck-dialog .dialog-body .dialog-close {
+	position: absolute;
+	left: -40px;
+	top: 10px;
+	width: 40px;
+	height: 40px;
+	z-index: 1001;
+	background: #00bc46;
+}
+.nrck-dialog .dialog-body .dialog-close a.icon {
+	display: block;
+	width: 40px;
+	height: 40px;
+	background: url(../images/icon/rckui-icon.png) no-repeat -160px 0;
+}
+.nrck-dialog .dialog-body.dialog-s {
+	position: absolute;
+	left: 50%;
+	right: auto;
+	top: 50%;
+	width: 400px;
+	height: 300px;
+	z-index: 1000;
+	background: #ffffff;
+}
+.nrck-dialog .dialog-body.dialog-s .dialog-close {
+	position: absolute;
+	right: 0;
+	top: 0;
+	left: auto;
+	width: 40px;
+	height: 40px;
+	z-index: 1001;
+	background: #ffffff;
+}
+.nrck-dialog .dialog-body.dialog-s .dialog-close a.icon {
+	display: block;
+	width: 40px;
+	height: 40px;
+	background: url(../images/icon/rckui-icon.png) no-repeat -200px 0;
+}
+
+/*----- nrck-msg -----*/
+.nrck-msg {
+	display: none;
+	position: fixed;
+	left:0;
+	top:0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+	z-index: 999;
+}
+.nrck-msg .msg-filter {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 999;
+	filter:Alpha(opacity=30);
+	opacity:0.3;
+	background: #000;
+}
+.nrck-msg .msg-body {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 400px;
+	height: 250px;
+	margin: -125px 0 0 -210px;
+	padding: 0 20px;
+	z-index: 1000;
+	background: #ffffff;
+	border: 1px solid #28c4ff;
+}
+.nrck-msg .msg-body .msg-head {
+	width: 100%;
+	height: 50px;
+	border-bottom: 1px solid #f7f7f7;
+}
+.nrck-msg .msg-body .msg-head .msg-title {
+	font-size: 18px;
+	line-height: 50px;
+	color: #000000;
+}
+.nrck-msg .msg-body .msg-text {
+	position: relative;
+	height: 100px;
+	line-height: 100px;
+	font-size: 0;
+}
+.nrck-msg .msg-body .msg-text .msg-content {
+	display: inline-block;
+	width: 100%;
+	line-height: 30px;
+	font-size: 18px;
+	vertical-align: middle;
+	text-align: center;
+}
+.nrck-msg .msg-body .msg-active {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 100px;
+	font-size: 0;
+	line-height: 100px;
+	text-align: center;
+}
+.nrck-msg .msg-body .msg-close {
+	position: absolute;
+	right: 10px;
+	top: 5px;
+	width: 40px;
+	height: 40px;
+	z-index: 1001;
+	background: #ffffff;
+}
+.nrck-msg .msg-body .msg-close a.icon {
+	display: block;
+	width: 40px;
+	height: 40px;
+	background: url(../images/icon/rckui-icon.png) no-repeat -200px 0;
+}
+
+/*----- nrck-prompt -----*/
+.nrck-prompt {
+	display: none;
+	position: fixed;
+	left:0;
+	top:50%;
+	width: 100%;
+	margin-top: -10px;
+	text-align: center;
+	z-index: 9999;
+}
+.nrck-prompt .prompt-text {
+	display: inline-block;
+	font-size: 14px;
+	font-weight: bold;
+	color: #000000;
+	background: #ffffff;
+	padding: 10px 100px;
+	line-height: 14px;
+	border-radius: 10px;
+	cursor: default;
+	border: 1px solid #28c4ff;
+	box-shadow: 0 0 10px #ffffff;
+}
+
+/*----- nrck-form -----*/
+.nrck-button {
+	display: inline-block;
+	padding: 7px 20px;
+	font-size: 14px;
+	line-height: 14px;
+	color: #000000;
+	border: 1px solid #dddddd;
+	vertical-align: middle;
+	border-radius: 5px;
+}
+.nrck-button.s1 {
+	color: #ffffff;
+	border: 1px solid #28c4ff;
+	background: #28c4ff;
+}
+.nrck-button.s1:hover {
+	border: 1px solid #17b7f3;
+	background: #17b7f3;
+}
+.nrck-button.s2:hover {
+	color: #000000;
+	background: #dddddd;
+}
+
+/*----- nrck-graph -----*/ 
+.nrck-graph {
+	position: relative;
+	width: 750px;
+	height: 420px;
+	z-index: 1000;
+	background: #ffffff;
+}
+.nrck-graph .graph-x {
+	position: absolute;
+	left: 50px;
+	bottom: 72px;
+	width: 682px;
+	height: 16px;
+	background: url(../images/icon/graph-x.png) no-repeat;
+}
+.nrck-graph .graph-y {
+	position: absolute;
+	left: 42px;
+	bottom: 80px;
+	width: 16px;
+	height: 268px;
+	background: url(../images/icon/graph-y.png) no-repeat;
+}
+.nrck-graph .graph-unit {
+	position: absolute;
+	left: 0;
+	bottom: 55px;
+}
+.nrck-graph .graph-unit ul li {
+	width: 50px;
+	height: 50px;
+	font-size: 14px;
+	line-height: 50px;
+	color: #333333;
+	text-align: center;
+}
+.nrck-graph .graph-name {
+	position: absolute;
+	left: 50px;
+	bottom: 10px;
+}
+.nrck-graph .graph-name ul {
+	width: 680px;
+	text-align: center;
+}
+.nrck-graph .graph-name ul li {
+	display: inline-block;
+	width: 80px;
+	height: 50px;
+	padding: 0 10px;
+	font-size: 12px;
+	line-height: 20px;
+	text-align: center;
+	color: #333333;
+	vertical-align: text-top;
+}
+.nrck-graph .graph-line {
+	position: absolute;
+	left: 50px;
+	bottom: 80px;
+	width: 680px;
+}
+.nrck-graph .graph-line .line-box {
+	width: 100%;
+	height: 49px;
+	border-top: 1px solid #e8e8e8;
+}
+.nrck-graph .grahp-column {
+	position: absolute;
+	left: 50px;
+	bottom: 80px;
+}
+.nrck-graph .grahp-column {
+	position: absolute;
+	width: 680px;
+	height: 250px;
+	left: 50px;
+	bottom: 80px;
+	text-align: center;
+}
+.nrck-graph .grahp-column .column-box {
+	position: relative;
+	display: inline-block;
+	width: 100px;
+	height: 100%;
+	text-align: center;
+}
+.nrck-graph .grahp-column .column-box .column-filter {
+	position: absolute;
+	left: 40px;
+	bottom: 0;
+	width: 20px;
+	height: 0%;
+	background: #e8e8e8;
+}
+.nrck-graph .grahp-column .column-box .column-filter .column-fill {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	height: 80%;
+	background: #28c4ff;
+	z-index: 501;
+	animation-name: column-fill-show;
+	animation-duration: 2s;
+	-webkit-animation-name: column-fill-show;
+	-webkit-animation-duration: 2s;
+}
+@-webkit-keyframes column-fill-show {
+	0% {
+		height: 0%;
+	}
+	100% {
+
+	}
+}
+@keyframes column-fill-show {
+	0% {
+		height: 0%;
+	}
+	100% {
+
+	}
+}
+.nrck-graph .grahp-column .column-box .column-tip {
+	display: none;
+	position: absolute;
+	bottom: 100%;
+	left: 50%;
+	margin-left: -40px;
+	margin-bottom: 10px;
+	width: 80px;
+	padding: 5px 0;
+	color: #333333;
+	background: #ffffff;
+	border: 1px solid #e8e8e8;
+	border-radius: 5px;
+	z-index: 1000;
+	cursor: default;
+}
+.nrck-graph .grahp-column .column-box .column-tip .tip-top {
+	position: absolute;
+	left: 50%;
+	bottom: -9px;
+	margin-left: -10px;
+	width: 19px;
+	height: 10px;
+	background: url(../images/icon/graph-tip.png) no-repeat;
+}
+.nrck-graph .grahp-column .column-box .column-tip p {
+	text-align: center;
+}
+.nrck-graph .grahp-column .column-box .column-filter:hover .column-tip {
+	display: block !important;
+	z-index: 503;
+}
+.nrck-graph .grahp-column .fill-now .column-tip {
+	display: block;
+}
+.rck-imgbox {
+	cursor: pointer;
+}
+/*----- rck-msg -----*/ 
+.rck-msg {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	width: 400px;
+	height: 30px;
+	margin: -15px 0 0 -200px;
+	background: url(../images/icon/b-main-msg.png) repeat-x;
+	border-radius: 5px;
+	box-shadow: 0 0 5px #dddddd;
+	z-index: 9999;
+}
+.top-msg {
+	top: 30px;
+	background: #ffffff;
+}
+.rck-msg p {
+	color: #ffffff;
+	text-align: center;
+	line-height: 30px;
+	cursor: default;
+}
+.top-msg p {
+	color: #333333;
+}
+
+.top-msg .loading-icon {
+	display: inline-block;
+	width: 24px;
+	height: 24px;
+	background: url(../images/icon/msg-loading.gif) no-repeat;
+	background-size: cover;
+	vertical-align: middle;
+}

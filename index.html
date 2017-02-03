@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+	<title>宜心健康 | Eheart</title>
+
+	<!-- Meta -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="favicon.ico">
+
+	<!-- Web Fonts 
+	<link rel='stylesheet' type='text/css' href='//fonts.googleapis.com/css?family=Open+Sans:400,300,600&amp;subset=cyrillic,latin'>
+	-->
+	<!-- CSS Global Compulsory -->
+	<link rel="stylesheet" href="assets/plugins/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/one.style.css">
+
+	<!-- CSS Footer -->
+	<link rel="stylesheet" href="assets/css/footers/footer-v2.css">
+
+	<!-- CSS Implementing Plugins -->
+	<link rel="stylesheet" href="assets/plugins/animate.css">
+	<link rel="stylesheet" href="assets/plugins/line-icons/line-icons.css">
+	<link rel="stylesheet" href="assets/plugins/font-awesome/css/font-awesome.min.css">
+	<link rel="stylesheet" href="assets/plugins/pace/pace-flash.css">
+	<link rel="stylesheet" href="assets/plugins/owl-carousel/owl.carousel.css">
+	<link rel="stylesheet" href="assets/plugins/cube-portfolio/cubeportfolio/css/cubeportfolio.min.css">
+	<link rel="stylesheet" href="assets/plugins/cube-portfolio/cubeportfolio/custom/custom-cubeportfolio.css">
+	<link rel="stylesheet" href="assets/plugins/revolution-slider/rs-plugin/css/settings.css" type="text/css" media="screen">
+	<!--[if lt IE 9]><link rel="stylesheet" href="assets/plugins/revolution-slider/rs-plugin/css/settings-ie8.css" type="text/css" media="screen"><![endif]-->
+
+	<!-- Style Switcher -->
+	<link rel="stylesheet" href="assets/css/plugins/style-switcher.css">
+
+	<!-- CSS Theme -->
+	<link rel="stylesheet" href="assets/css/theme-colors/default.css" id="style_color">
+
+	<!-- CSS Customization -->
+	<link rel="stylesheet" href="assets/css/custom.css">
+	  <link href="css/jquery.popup.css" rel="stylesheet" type="text/css">
+	<link rel="stylesheet" href="assets/css/custom.css">
+	  
+	<script src="js/jquery-1.10.1.min.js" type="text/javascript"></script>
+	<script src="js/jquery.popup.js"></script>
+	<script src="js/jquery.popup.dialog.min.js"></script>
+	<script src="js/json2.js"></script>
+<script>
+	function queryMenuList(){
+		var menuURL = 'http://www.eheartsh.com:8080/api/menus';
+		var menuHtml ='';
+		jQuery.ajax({
+			url: menuURL,
+			type: 'get',
+			dataType: 'html',
+			success: function(data){
+				var menuObjs=JSON.parse(data); 
+				for(var i=0;i<menuObjs.length;i++){
+					if(i>0){
+						menuHtml +='<li style="border-left:1px solid #ccc;top: 15px;">&nbsp;</li>';
+					}
+					if(menuObjs[i].link=="#"){
+						menuHtml += '<li class="page-scroll" onmouseover="addSubMenu('+i+','+menuObjs[i].id+',event,this)" ><a  href="javascript:void(0)" target="contentFrame" class="eh-font-size-title">' + menuObjs[i].name + '</a></li>';
+                    }else{
+						menuHtml += '<li class="page-scroll" onmouseover="addSubMenu('+i+','+menuObjs[i].id+',event,this)" ><a  href="javascript:removeSubMenu(\'' + menuObjs[i].link + '?menuid='+menuObjs[i].id+'\')" target="contentFrame" class="eh-font-size-title">' + menuObjs[i].name + '</a></li>';
+                    }
+				}
+				menuHtml +='<li class="page-scroll home"><div   style="-moz-border-radius: 5px; -webkit-border-radius: 5px;top:15px; position:relative; border-radius:5px; line-height:25px; height:26px;background-color:rgb(57,74,26);opacity:1;width:50px;text-align:center"><a href="#" class="eh-font-size-title_new" style="color:#fff;">中文</a></div></li>';
+				menuHtml +='<li class="page-scroll home"><a href="#" class="eh-font-size-title_new">english</a></li>';
+				/*
+				for(var o in bToObj){  
+					alert(o);  
+					alert(data[o]);  
+					alert("text:"+data[o].name+" value:"+data[o].id );  
+				  } 
+                $.each(data, function (i, item) {
+                  	
+                    menuHtml += '<li class="page-scroll"><a href="index-product.html" target="' + item.id + '" class="eh-font-size-title">' + item.name + '</a></li>';
+                    //menuHtml += '<option value=' + item.VALUE + '>' + item.name + '</option>';
+                });*/
+				$('#mainMenuDiv').html(menuHtml);
+			}
+		});
+	}
+	queryMenuList();
+	function addSubMenu(index,menuid,e,obj){
+		var menuURL = 'http://www.eheartsh.com:8080/api/menus/'+menuid;
+		var pointX = $(obj).position().left;
+		var menuHtml ='';
+		jQuery.ajax({
+			url: menuURL,
+			type: 'get',
+			dataType: 'html',
+			success: function(data){
+				var menuObj=JSON.parse(data); 
+				var submenuHtml="";
+				var subMenus = menuObj.hasSubMenus;
+				if(subMenus.length>0){
+					for(var i=0;i<subMenus.length;i++){
+						submenuHtml +='<li><a href="javascript:removeSubMenu(\''+subMenus[i].link+'\')"  style="color:#fff;">'+subMenus[i].name+'</a></li>';
+					}
+					$('#subMenuUl').html(submenuHtml);
+					$('#subMenuDiv').css('height',28*subMenus.length); 
+					$('#subMenuDiv').css('left',pointX); 
+					$('#subMenuDiv').css('display','block'); 
+				}
+			}
+		})
+				
+		
+	}
+	
+	function removeSubMenu(link){
+						if(link!='null'&&link!=""){
+							$("#contentFrame").attr('src',link);
+						}
+					$('#subMenuDiv').css('display','none'); 
+	
+	}
+	function outSubMenu(){
+						
+					$('#subMenuDiv').css('display','none'); 
+	
+	}
+</script>
+</head>
+
+<!--
+The #page-top ID is part of the scrolling feature.
+The data-spy and data-target are part of the built-in Bootstrap scrollspy function.
+-->
+<body id="body"  style="overflow-x:scroll; " data-target=".one-page-header" class="demo-lightbox-gallery" >
+
+			
+	<!--=== Header ===-->
+	<nav class="one-page-header navbar navbar-default navbar-fixed-top" role="navigation">
+		<div class="container">
+			<div class="menu-container page-scroll">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+
+				<a class="navbar-brand" href="#intro" style="padding-top:1px;">
+					<!--<span>U</span>nify-->
+                    <div style="float: right;vertical-align: middle;margin-top: 4px; ">
+					<span class="yixin" style="font-size: 24px; font-family: 'Microsoft YaHei' ! important;font-weight:400;  margin-top: 15px;margin-left: 10px;text-align:left;">宜心健康</span><br />
+					<div style="height: 4px; "></div>
+					<span class="eheart" style="font-size:18px;margin-top:35px;font-color:#7d7d7d;margin-left: 0px;text-align:left;">&nbsp;eheart</span>
+                    </div>
+					<img src="assets/img/logo.png" alt="Logo">
+					
+				</a>
+			</div>
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse navbar-ex1-collapse">
+				<div class="menu-container">
+					<ul class="nav navbar-nav" id="mainMenuDiv">
+						
+						<li class="page-scroll home">
+							<a href="#" class="eh-font-size-title_new">中文</a>
+						</li>
+						
+						<li class="page-scroll home">
+							<a href="#" class="eh-font-size-title_new">english</a>
+						</li>
+						
+					</ul>
+				</div>
+			</div>
+			<!-- /.navbar-collapse -->
+			<div   style="-moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius:5px;  position:absolute;top:62px;left:806px;height:60px;background-color:rgb(91,166,71);width:80px;display:none" id="subMenuDiv" >
+			
+			<img src='assets/img/submenuTitle.png' style="top:-5px;position:absolute;left:33px" ></img>
+			
+					<ul  style="list-style-type:none;text-align:center;padding-left:0px;margin-top: 10px;" id="subMenuUl" >
+						<li>
+							<a href="#"  style="color:#fff;">中文</a>
+						</li>
+						<li >
+							<a href="#" style="color:#fff;">english</a>
+						</li>
+					</ul>
+				</div>
+			
+			
+		</div>
+		<!-- /.container -->
+	</nav>
+	<!--=== End Header ===-->
+	<iframe onmouseover="outSubMenu()" id="contentFrame" src="index-main.html" name="contentFrame"  width="100%" height="900px" frameborder="no" border="0" marginwidth="0" marginheight="0" scrolling="auto" allowtransparency="yes" ></iframe>
+	
+	<div style = " background-image: url(assets/img/footer.png);background-repeat:repeat-x;background-position:center 0;height:22% ;width:100%;background-size:cover;"></div>
+	
+	</body>
+	</html>
